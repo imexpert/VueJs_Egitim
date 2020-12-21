@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-once html ilk render edilirken bir defa çalıştırılır. -->
+        <p v-once>{{title}}</p>
+        <p>{{hello()}}</p>
+
+        <a v-bind:href="link">Google</a>
+
+        <!-- v-html html içerikleri göstermek için kullanılır. -->
+        <p v-html="bloglink">/p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data : {
+                title : "Merhaba VueJS Eğitimi",
+                message : "mesaj",
+                link : "https://google.com.tr",
+                bloglink : "<a href='https://google.com.tr'>Tıkla</a>"
+            },
+            methods : {
+                hello : function() {
+                    this.title = "Alos";
+                    return this.title+" " + this.message;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

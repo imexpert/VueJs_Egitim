@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <p>{{ counter }}</p>
+        <p>{{ name }}</p>
+        <p>{{ result() }}</p>
+
+        <p>{{ output }}</p>
+        <button v-on:click="counter++">Arttır</button>
+        <button v-on:click="counter--">Azalt</button>
+
+        <!-- data içerisindeki değişkenlerden bir tanesinin değeri değişirse ve bu değişken template içerisinde kullanılıyorsa 
+            template render edilir. Bütün methodlar yeniden çalışır -->
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data : {
+                name : "Ali Osman",
+                counter : 0,
+                secondCounter : 0
+            },
+            methods : {
+                result : function () {
+                    return this.counter > 10 ? "10 dan büyüktür" : "10 dan küçüktür"
+                }
+            },
+            computed : {
+                output : function () {
+                    return this.counter > 10 ? "10 dan büyüktür" : "10 dan küçüktür"
+                }
+            }
+        });
+    </script>
+</body>
+</html>
